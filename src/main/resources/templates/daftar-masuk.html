@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Daftar Mahasiswa</title>
+	<script src="/js/angular.min.js"></script>
+	<script src="/js/msk-controller.js"></script>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    </head>
+    <body ng-app="MskApp" class="container">
+        
+        <div class="jumbotron">
+            <h1>Daftar Mahasiswa</h1>
+            
+        </div>
+        <div ng-controller="MskController">
+        <button class="btn btn-danger" ng-click="keluar()">Keluar</button>
+        <a href="/tambah" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+            <table class="table table-bordered table-hovered">
+                <thead>
+                    <tr>
+                        <th align="center">ID</th>
+                        <th align="center">TANGGAL SURAT</th>
+                        <th align="center">JUDUL</th>
+                        <th align="center">KEPADA</th>
+                        <th align="center">OPSI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="msk in daftarMsk">
+                        <td>{{ msk.id }}</td>
+                        <td>{{ msk.tanggal_surat }}</td>
+                        <td>{{ msk.judul }}</td>
+                        <td>{{ msk.kepada }}</td>
+                        <td>
+                        <button class="btn btn-warning" ng-click="ubah(msk)"><span class="glyphicon glyphicon-edit"></span> Ubah</button>
+                        <button class="btn btn-danger" ng-click="hapus(msk)"><span class="glyphicon glyphicon-trash"></span> Hapus</button></td>
+                        
+                    </tr>
+                </tbody>
+                
+            </table>
+            
+        </div>
+            
+
+    </body>
+</html>
